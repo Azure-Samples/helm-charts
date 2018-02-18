@@ -13,11 +13,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: vote-front-{{.Release.Name}}
+  name: {{ .Values.serviceNameFront }}
   labels:
-    name: vote-front-{{.Release.Name}}
+    name: {{ .Values.serviceNameFront }}
 spec:
-  type: LoadBalancer
+  type: {{ .Values.serviceType }}
   ports:
   - port: 80
   selector:
