@@ -12,6 +12,6 @@ helm repo add azure-samples https://azure-samples.github.io/helm-charts/
 
 All chart source material including chart readme files are found under the [chart-source directory](/chart-source/).
 
-Charts include:
+**Charts include:**
 
-- [Azure Vote sample application chart](/chart-source/azure-vote/)
+[Azure Vote sample application chart](/chart-source/azure-vote/)
