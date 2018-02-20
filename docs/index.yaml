@@ -2,11 +2,11 @@ apiVersion: v1
 entries:
   azure-vote:
   - apiVersion: v1
-    created: 2018-02-17T20:13:42.674006-08:00
+    created: 2018-02-18T09:27:48.678148-08:00
     description: A Helm chart for Kubernetes
-    digest: fb1c73a8ddd4c4c1d6ff251bb705a0185eda588f85fd7ce6556f98ebbab1deb2
+    digest: da054ba832f52ff3e8da26ffe705d6ad6c2ed0818c04588c832c716e8e8d84a7
     name: azure-vote
     urls:
     - https://azure-samples.github.io/helm-charts/azure-vote-0.1.0.tgz
     version: 0.1.0
-generated: 2018-02-17T20:13:42.671895-08:00
+generated: 2018-02-18T09:27:48.676436-08:00
