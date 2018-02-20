@@ -1,0 +1,15 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Values.name }}
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.name }}
+    spec:
+      containers:
+      - name: {{ .Values.name }}
+        image: neilpeterson/burst-scheduler:v1.2
+        args: ["--burstNode", "{{ .Values.burstNode }}", "--burstValue", "{{ .Values.burstValue }}"]
