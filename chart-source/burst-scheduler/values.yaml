@@ -1,0 +1,4 @@
+# UI controll
+name: burst-scheduler
+burstNode: irtual-kubelet-aci-connector-linux
+burstValue: 5
