@@ -14,4 +14,6 @@ All chart source material including chart readme files are found under the [char
 
 **Charts include:**
 
+[Azure Container Service (AKS) hello world](/chart-source/aks-helloworld/)
+
 [Azure Vote sample application chart](/chart-source/azure-vote/)
