@@ -14,9 +14,9 @@ spec:
         image: neilpeterson/aks-helloworld:v1
         ports:
         - containerPort: 80
-      env:
-      - name: TITLE
-        value: {{ .Values.title }}
+        env:
+        - name: TITLE
+          value: {{ .Values.title }}
 ---
 apiVersion: v1
 kind: Service
