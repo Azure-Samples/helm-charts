@@ -19,3 +19,5 @@ All chart source material including chart readme files are found under the [char
 [Azure Vote sample application chart](/chart-source/azure-vote/)
 
 [Kubernetes burst scheduler](/chart-source/burst-scheduler)
+
+[OMS container monitoring solution](/chart-source/oms-daemonset)
