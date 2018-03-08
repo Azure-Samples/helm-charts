@@ -4,6 +4,14 @@ Chart for the Azure OMS daemonset. For more information, see:
 
 https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-monitor
 
+## Pre-create Kubernetes secret
+
+Create a Kubernetes secret that contains the OMS Workspace ID and Key. Update `WORKSPACE_ID` with your OMS workspace ID and `WORKSPACE_KEY` with the workspace key.
+
+```
+kubectl create secret generic omsagent-secret --from-literal=WSID=WORKSPACE_ID --from-literal=KEY=WORKSPACE_KEY
+```
+
 ## Installing the Chart
 
 Add the Azure Samples chart repository.
