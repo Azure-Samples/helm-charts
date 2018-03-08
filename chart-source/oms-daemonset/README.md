@@ -15,7 +15,7 @@ helm repo add azure-samples https://azure-samples.github.io/helm-charts/
 Install the chart.
 
 ```
-helm install azure-samples/oms-daemonset
+helm install azure-samples/oms-daemonset --set secretName=omsagent-secret
 ```
 
 ## Configuration
