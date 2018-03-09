@@ -25,7 +25,7 @@ The following tables lists the configurable parameters of the azure-vote chart a
 | value1 | Value for first vote controll / value | Cats |
 | value2 | Value for second vote controll / value | Dogs |
 | serviceName | Name for Kubernetes service. | aks-helloworld |
-| serviceType | Type for Kubernetes service. | ClusterIP |
+| serviceType | Type for Kubernetes service. | LoadBalancer |
 
 ## Examples
 
