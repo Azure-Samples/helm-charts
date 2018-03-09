@@ -1,7 +1,6 @@
 # azure-vote
 
-The Azure Vote application is a simple sample used throughout the Azure Container Service (AKS) documentation. The application consists of two pods, one running a flask web form, and the second a redis instance for temporary data storage.
-
+The Azure Vote application is a simple sample used throughout the Azure Container Service (AKS) documentation. This example demonstrates the Azure vote application with Azure Redis using the Kubernetes Open Service Broker for Azure (OSBA).
 ## Installing the Chart
 
 Add the Azure Samples chart repository.
