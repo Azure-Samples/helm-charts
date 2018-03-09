@@ -1,0 +1,8 @@
+# Azure Vote UI controll
+title: "Azure Vote App"
+value1: Cats
+value2: Dogs
+
+# Service controlls
+serviceNameFront: azure-vote-front
+serviceType: LoadBalancer

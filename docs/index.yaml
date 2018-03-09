@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   aks-helloworld:
   - apiVersion: v1
-    created: 2018-03-08T11:37:31.626792-08:00
+    created: 2018-03-09T10:52:58.968353-08:00
     description: A Helm chart for Kubernetes
     digest: b5e54976fdab325f45874eb157ea569fb9a246a1ce665ed1e9047c8ba2b34eef
     name: aks-helloworld
@@ -11,29 +11,29 @@ entries:
     version: 0.1.0
   azure-vote:
   - apiVersion: v1
-    created: 2018-03-08T11:37:31.629834-08:00
+    created: 2018-03-09T10:52:58.971672-08:00
     description: A Helm chart for Kubernetes
     digest: da054ba832f52ff3e8da26ffe705d6ad6c2ed0818c04588c832c716e8e8d84a7
     name: azure-vote
     urls:
     - https://azure-samples.github.io/helm-charts/azure-vote-0.1.0.tgz
     version: 0.1.0
+  azure-vote-osba:
+  - apiVersion: v1
+    created: 2018-03-09T10:52:58.973415-08:00
+    description: A Helm chart for Kubernetes
+    digest: 64f7688099208066cef552afc560bd4d0ff04a297365c4260d3116fd1af061da
+    name: azure-vote-osba
+    urls:
+    - https://azure-samples.github.io/helm-charts/azure-vote-osba-0.1.0.tgz
+    version: 0.1.0
   burst-scheduler:
   - apiVersion: v1
-    created: 2018-03-08T11:37:31.630239-08:00
+    created: 2018-03-09T10:52:58.973896-08:00
     description: A Helm chart for Kubernetes
     digest: 326910e7174b98c337e508c1b2baa1e430720758e013256aa8fcbcf1551c2c13
     name: burst-scheduler
     urls:
     - https://azure-samples.github.io/helm-charts/burst-scheduler-0.1.0.tgz
     version: 0.1.0
-  oms-daemonset:
-  - apiVersion: v1
-    created: 2018-03-08T11:37:31.63042-08:00
-    description: A Helm chart for Kubernetes
-    digest: 5b0a1ae4eadceaecef0e5c386ab9d6f2cd342495888dc848f531994bf8363c6d
-    name: oms-daemonset
-    urls:
-    - https://azure-samples.github.io/helm-charts/oms-daemonset-0.1.0.tgz
-    version: 0.1.0
-generated: 2018-03-08T11:37:31.625796-08:00
+generated: 2018-03-09T10:52:58.967599-08:00
