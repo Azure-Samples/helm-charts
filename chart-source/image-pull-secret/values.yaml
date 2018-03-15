@@ -1,0 +1,10 @@
+# UI controll
+title: "Welcome to Azure Container Service (AKS)"
+
+# Service controlls
+serviceName: aks-helloworld
+serviceType: LoadBalancer
+
+# Container Image
+image: myacrregistry.azurecr.io/aks-helloworld
+imagePullSecret: acr-auth

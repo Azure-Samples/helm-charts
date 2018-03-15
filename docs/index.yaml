@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   aks-helloworld:
   - apiVersion: v1
-    created: 2018-03-09T10:52:58.968353-08:00
+    created: 2018-03-14T17:01:37.69929-07:00
     description: A Helm chart for Kubernetes
     digest: b5e54976fdab325f45874eb157ea569fb9a246a1ce665ed1e9047c8ba2b34eef
     name: aks-helloworld
@@ -11,7 +11,7 @@ entries:
     version: 0.1.0
   azure-vote:
   - apiVersion: v1
-    created: 2018-03-09T10:52:58.971672-08:00
+    created: 2018-03-14T17:01:37.701983-07:00
     description: A Helm chart for Kubernetes
     digest: da054ba832f52ff3e8da26ffe705d6ad6c2ed0818c04588c832c716e8e8d84a7
     name: azure-vote
@@ -20,7 +20,7 @@ entries:
     version: 0.1.0
   azure-vote-osba:
   - apiVersion: v1
-    created: 2018-03-09T10:52:58.973415-08:00
+    created: 2018-03-14T17:01:37.704863-07:00
     description: A Helm chart for Kubernetes
     digest: 64f7688099208066cef552afc560bd4d0ff04a297365c4260d3116fd1af061da
     name: azure-vote-osba
@@ -29,11 +29,20 @@ entries:
     version: 0.1.0
   burst-scheduler:
   - apiVersion: v1
-    created: 2018-03-09T10:52:58.973896-08:00
+    created: 2018-03-14T17:01:37.705236-07:00
     description: A Helm chart for Kubernetes
     digest: 326910e7174b98c337e508c1b2baa1e430720758e013256aa8fcbcf1551c2c13
     name: burst-scheduler
     urls:
     - https://azure-samples.github.io/helm-charts/burst-scheduler-0.1.0.tgz
     version: 0.1.0
-generated: 2018-03-09T10:52:58.967599-08:00
+  image-pull-secret:
+  - apiVersion: v1
+    created: 2018-03-14T17:01:37.70541-07:00
+    description: A Helm chart for Kubernetes
+    digest: ee937e26d72c420a9eb5af8eb0ef23206260858c830b06e7b5ec37c5752fa6a3
+    name: image-pull-secret
+    urls:
+    - https://azure-samples.github.io/helm-charts/image-pull-secret-0.1.0.tgz
+    version: 0.1.0
+generated: 2018-03-14T17:01:37.698398-07:00
