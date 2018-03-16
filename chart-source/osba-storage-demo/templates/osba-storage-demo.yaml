@@ -1,0 +1,54 @@
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ServiceInstance
+metadata:
+  name: azure-storage-demo
+  namespace: default
+spec:
+  clusterServiceClassExternalName: azure-storage
+  clusterServicePlanExternalName: blob-container
+  parameters:
+    location: eastus
+    resourceGroup: osba-azure-storag-demo
+---
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ServiceBinding
+metadata:
+  name: azure-storage-binding
+  namespace: default
+spec:
+  instanceRef:
+    name: azure-storage-demo
+  secretName: osba-azure-storag-demo
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: osba-storage-demo
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: osba-storage-demo
+    spec:
+      containers:
+      - name: osba-storage-demo
+        image: neilpeterson/osba-storage-demo
+        ports:
+        - containerPort: 80
+        env:
+        - name: AZURE_STORAGE_ACCT
+          valueFrom:
+            secretKeyRef:
+              key: storageAccountName
+              name: osba-azure-storag-demo
+        - name: AZURE_KEY
+          valueFrom:
+            secretKeyRef:
+              key: accessKey
+              name: osba-azure-storag-demo
+        - name: CONTAINER
+          valueFrom:
+            secretKeyRef:
+              key: containerName
+              name: osba-azure-storag-demo
