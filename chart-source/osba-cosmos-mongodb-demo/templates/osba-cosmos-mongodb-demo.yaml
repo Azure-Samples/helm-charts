@@ -1,0 +1,44 @@
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ServiceInstance
+metadata:
+  name: osba-cosmos-mongo-demo
+  namespace: default
+spec:
+  clusterServiceClassExternalName: azure-cosmos-mongo-db
+  clusterServicePlanExternalName: mongo-db
+  parameters:
+    location: eastus
+    resourceGroup: osba-cosmos-mongo-demo
+---
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ServiceBinding
+metadata:
+  name: osba-cosmos-mongo-demo
+  namespace: default
+spec:
+  instanceRef:
+    name: osba-cosmos-mongo-demo
+  secretName: osba-cosmos-mongo-demo
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: osba-cosmos-mongodb-demo
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: osba-cosmos-mongodb-demo
+    spec:
+      containers:
+      - name: osba-cosmos-mongodb-demo
+        image: neilpeterson/osba-cosmos-mongodb-demo
+        ports:
+        - containerPort: 80
+        env:
+        - name: MONGO_CONNECTION_STRING
+          valueFrom:
+            secretKeyRef:
+              key: connectionString
+              name: osba-cosmos-mongo-demo
