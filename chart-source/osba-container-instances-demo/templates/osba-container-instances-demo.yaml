@@ -1,0 +1,46 @@
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ServiceInstance
+metadata:
+  name: osba-container-instances-demo
+  namespace: default
+spec:
+  clusterServiceClassExternalName: azure-aci
+  clusterSeicePlanExternalName: aci
+  parameters:
+    location: eastus
+    resourceGroup: osba-container-instances-demo
+    image: microsoft/aci-helloworld
+    ports: [80]
+---
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ServiceBinding
+metadata:
+  name: osba-container-instances-demo
+  namespace: default
+spec:
+  instanceRef:
+    name: osba-container-instances-demo
+  secretName: osba-container-instances-demo
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: osba-container-instances-demo
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: osba-container-instances-demo
+    spec:
+      containers:
+      - name: osba-container-instances-demo
+        image: neilpeterson/osba-container-instances-demo
+        ports:
+        - containerPort: 80
+        env:
+        - name: ACI_PIP
+          valueFrom:
+            secretKeyRef:
+              key: publicIPv4Address
+              name: osba-container-instances-demo
