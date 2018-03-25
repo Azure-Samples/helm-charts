@@ -1,0 +1,60 @@
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ServiceInstance
+metadata:
+  name: osba-mysql-demo
+  namespace: default
+spec:
+  clusterServiceClassExternalName: azure-mysql
+  clusterServicePlanExternalName: basic50
+  parameters:
+    location: westeurope
+    resourceGroup: osba-mysql-demo
+    sslEnforcement: disabled
+---
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ServiceBinding
+metadata:
+  name: osba-mysql-demo
+  namespace: default
+spec:
+  instanceRef:
+    name: osba-mysql-demo
+  secretName: osba-mysql-demo
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: osba-mysql-demo
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: osba-mysql-demo
+    spec:
+      containers:
+      - name: osba-mysql-demo
+        image: neilpeterson/osba-mysql-demo
+        ports:
+        - containerPort: 80
+        env:
+        - name: MYSQL_USER
+          valueFrom:
+            secretKeyRef:
+              key: username
+              name: osba-mysql-demo
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: password
+              name: osba-mysql-demo
+        - name: MYSQL_HOST
+          valueFrom:
+            secretKeyRef:
+              key: host
+              name: osba-mysql-demo
+        - name: MYSQL_DATABASE
+          valueFrom:
+            secretKeyRef:
+              key: database
+              name: osba-mysql-demo
