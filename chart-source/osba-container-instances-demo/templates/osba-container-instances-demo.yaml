@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   clusterServiceClassExternalName: azure-aci
-  clusterSeicePlanExternalName: aci
+  clusterServicePlanExternalName: aci
   parameters:
     location: eastus
     resourceGroup: osba-container-instances-demo

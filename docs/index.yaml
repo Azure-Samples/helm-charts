@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   aks-helloworld:
   - apiVersion: v1
-    created: 2018-03-24T21:08:38.840704921-07:00
+    created: 2018-04-26T12:49:03.315929536-07:00
     description: A Helm chart for Kubernetes
     digest: b5e54976fdab325f45874eb157ea569fb9a246a1ce665ed1e9047c8ba2b34eef
     name: aks-helloworld
@@ -11,7 +11,7 @@ entries:
     version: 0.1.0
   azure-vote:
   - apiVersion: v1
-    created: 2018-03-24T21:08:38.844122171-07:00
+    created: 2018-04-26T12:49:03.317493622-07:00
     description: A Helm chart for Kubernetes
     digest: da054ba832f52ff3e8da26ffe705d6ad6c2ed0818c04588c832c716e8e8d84a7
     name: azure-vote
@@ -20,7 +20,7 @@ entries:
     version: 0.1.0
   azure-vote-osba:
   - apiVersion: v1
-    created: 2018-03-24T21:08:38.847000862-07:00
+    created: 2018-04-26T12:49:03.319043759-07:00
     description: A Helm chart for Kubernetes
     digest: 64f7688099208066cef552afc560bd4d0ff04a297365c4260d3116fd1af061da
     name: azure-vote-osba
@@ -29,7 +29,7 @@ entries:
     version: 0.1.0
   burst-scheduler:
   - apiVersion: v1
-    created: 2018-03-24T21:08:38.847517385-07:00
+    created: 2018-04-26T12:49:03.319493739-07:00
     description: A Helm chart for Kubernetes
     digest: 326910e7174b98c337e508c1b2baa1e430720758e013256aa8fcbcf1551c2c13
     name: burst-scheduler
@@ -38,7 +38,7 @@ entries:
     version: 0.1.0
   image-pull-secret:
   - apiVersion: v1
-    created: 2018-03-24T21:08:38.848221307-07:00
+    created: 2018-04-26T12:49:03.319869765-07:00
     description: A Helm chart for Kubernetes
     digest: ee937e26d72c420a9eb5af8eb0ef23206260858c830b06e7b5ec37c5752fa6a3
     name: image-pull-secret
@@ -47,16 +47,16 @@ entries:
     version: 0.1.0
   osba-container-instances-demo:
   - apiVersion: v1
-    created: 2018-03-24T21:08:38.848934413-07:00
+    created: 2018-04-26T12:49:03.320044855-07:00
     description: A Helm chart for Kubernetes
-    digest: c14a9672c7fa1c0549f747a66de0272e038b22829ea676a05b19530604b11868
+    digest: b5f25ecf64d72644166835e48afda396b83acaff341bcb7c1e60efc12e547df6
     name: osba-container-instances-demo
     urls:
     - https://azure-samples.github.io/helm-charts/osba-container-instances-demo-0.1.0.tgz
     version: 0.1.0
   osba-cosmos-mongodb-demo:
   - apiVersion: v1
-    created: 2018-03-24T21:08:38.849651837-07:00
+    created: 2018-04-26T12:49:03.320502552-07:00
     description: A Helm chart for Kubernetes
     digest: 734a0f54ff18f324d9e0953eac10f376f93b271ee5f0fcec208eb3b2587b098b
     name: osba-cosmos-mongodb-demo
@@ -65,7 +65,7 @@ entries:
     version: 0.1.0
   osba-mysql-demo:
   - apiVersion: v1
-    created: 2018-03-24T21:08:38.849873729-07:00
+    created: 2018-04-26T12:49:03.320872257-07:00
     description: A Helm chart for Kubernetes
     digest: 034fe8960dcc4948ae28110622c6ea5b5439eb5ee35750899446da2455acf6ea
     name: osba-mysql-demo
@@ -74,11 +74,11 @@ entries:
     version: 0.1.0
   osba-storage-demo:
   - apiVersion: v1
-    created: 2018-03-24T21:08:38.850530949-07:00
+    created: 2018-04-26T12:49:03.321245369-07:00
     description: A Helm chart for Kubernetes
     digest: f7a27633b1d8cd94f209848df4ae2f309b4f614f6fd909179611cab6d37964d2
     name: osba-storage-demo
     urls:
     - https://azure-samples.github.io/helm-charts/osba-storage-demo-0.1.0.tgz
     version: 0.1.0
-generated: 2018-03-24T21:08:38.839347136-07:00
+generated: 2018-04-26T12:49:03.314075942-07:00
