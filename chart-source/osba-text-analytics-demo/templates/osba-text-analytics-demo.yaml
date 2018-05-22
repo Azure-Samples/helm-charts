@@ -1,0 +1,49 @@
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ServiceInstance
+metadata:
+  name: osba-text-analytics-demo
+  namespace: default
+spec:
+  clusterServiceClassExternalName: azure-text-analytics
+  clusterServicePlanExternalName: free
+  parameters:
+    location: eastus
+    resourceGroup: osba-text-analytics-demo
+---
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ServiceBinding
+metadata:
+  name: osba-text-analytics-demo
+  namespace: default
+spec:
+  instanceRef:
+    name: osba-text-analytics-demo
+  secretName: osba-text-analytics-demo
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: osba-text-analytics-demo
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: osba-text-analytics-demo
+    spec:
+      containers:
+      - name: osba-text-analytics-demo
+        image: neilpeterson/osba-text-analytics-demo
+        ports:
+        - containerPort: 80
+        env:
+        - name: AZURE_ANALYTICS_URI
+          valueFrom:
+            secretKeyRef:
+              key: endpoint
+              name: osba-text-analytics-demo
+        - name: AZURE_ANALYTICS_KEY
+          valueFrom:
+            secretKeyRef:
+              key: cognitivekey
+              name: osba-text-analytics-demo
