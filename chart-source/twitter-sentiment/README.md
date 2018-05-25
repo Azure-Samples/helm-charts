@@ -49,7 +49,7 @@ helm repo add azure-samples https://azure-samples.github.io/helm-charts/
 Install the chart.
 
 ```
-helm install twitter-sentiment/ --set consumerKey=0000000000000000000000000 --set consumerSecret=000000000000000000000000000000000000000000000000 --set accessToken=0000000000000000000000000000000000000000000000000 --set accessTokenSecret=00000000000000000000000000000000000000000000
+helm install azure-samples/twitter-sentiment --set consumerKey=<> --set consumerSecret=<> --set accessToken=<> --set accessTokenSecret=<>
 ```
 
 ## Configuration
