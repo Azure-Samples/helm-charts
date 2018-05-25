@@ -1,0 +1,15 @@
+# Twitter API authentication
+twitterSecretName: twitter-api
+
+# If consumerKey = controll a secret is not created
+# and it assumed that a pre-creates secret exsists
+# with a the .Values.secret-name specified here.
+consumerKey: ROgy0lRckDNDXfRtkYYefr7TT
+consumerSecret: iLT0fQV0vw3orRbDGqCwXj2aHJoygOr0Yxw7XrBBJOEf81lyLv
+accessToken: 556115100-IYoAeEAVj2oFqKeLA3QmQyLs8VPft9AC8NS4TV0Q
+accessTokenSecret: ohAOB5kDgXJ6sIfEt3UyWnpUq6y9VbRcGQU4OOiPnGAIP
+filterText: Seattle
+
+# Azure
+plan: standard-s1
+resourceGroup: twitter-sentiment
