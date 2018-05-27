@@ -215,7 +215,7 @@ spec:
         - name:  COSMOS_DB_COLLECTION
           value: mytwittersentiment
         - name:  CHART_LABEL
-          value: "Tweets about {{ .Values.filterText }}"
+          value: {{ .Values.filterText }}
 ---
 apiVersion: v1
 kind: Service
