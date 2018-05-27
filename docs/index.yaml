@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   aks-helloworld:
   - apiVersion: v1
-    created: 2018-05-26T19:30:10.782809149-07:00
+    created: 2018-05-27T11:02:19.471486941-07:00
     description: A Helm chart for Kubernetes
     digest: f4eb20e7116b24c4825861e6ff6f4303bbe83bcee4a7b2b6ea9fe6929852f34d
     name: aks-helloworld
@@ -11,7 +11,7 @@ entries:
     version: 0.1.0
   azure-vote:
   - apiVersion: v1
-    created: 2018-05-26T19:30:10.784160708-07:00
+    created: 2018-05-27T11:02:19.472847351-07:00
     description: A Helm chart for Kubernetes
     digest: da054ba832f52ff3e8da26ffe705d6ad6c2ed0818c04588c832c716e8e8d84a7
     name: azure-vote
@@ -20,7 +20,7 @@ entries:
     version: 0.1.0
   azure-vote-osba:
   - apiVersion: v1
-    created: 2018-05-26T19:30:10.785870171-07:00
+    created: 2018-05-27T11:02:19.474345947-07:00
     description: A Helm chart for Kubernetes
     digest: 64f7688099208066cef552afc560bd4d0ff04a297365c4260d3116fd1af061da
     name: azure-vote-osba
@@ -29,7 +29,7 @@ entries:
     version: 0.1.0
   burst-scheduler:
   - apiVersion: v1
-    created: 2018-05-26T19:30:10.786071104-07:00
+    created: 2018-05-27T11:02:19.474521652-07:00
     description: A Helm chart for Kubernetes
     digest: 326910e7174b98c337e508c1b2baa1e430720758e013256aa8fcbcf1551c2c13
     name: burst-scheduler
@@ -38,7 +38,7 @@ entries:
     version: 0.1.0
   image-pull-secret:
   - apiVersion: v1
-    created: 2018-05-26T19:30:10.786252965-07:00
+    created: 2018-05-27T11:02:19.47464951-07:00
     description: A Helm chart for Kubernetes
     digest: ee937e26d72c420a9eb5af8eb0ef23206260858c830b06e7b5ec37c5752fa6a3
     name: image-pull-secret
@@ -47,7 +47,7 @@ entries:
     version: 0.1.0
   osba-container-instances-demo:
   - apiVersion: v1
-    created: 2018-05-26T19:30:10.786394741-07:00
+    created: 2018-05-27T11:02:19.47480031-07:00
     description: A Helm chart for Kubernetes
     digest: b5f25ecf64d72644166835e48afda396b83acaff341bcb7c1e60efc12e547df6
     name: osba-container-instances-demo
@@ -56,7 +56,7 @@ entries:
     version: 0.1.0
   osba-cosmos-mongodb-demo:
   - apiVersion: v1
-    created: 2018-05-26T19:30:10.786525798-07:00
+    created: 2018-05-27T11:02:19.474918595-07:00
     description: A Helm chart for Kubernetes
     digest: b581f67458cdf999ef0308786dc29f603bab6aadf5ad0a127f5fb1a816aef091
     name: osba-cosmos-mongodb-demo
@@ -65,7 +65,7 @@ entries:
     version: 0.1.0
   osba-mysql-demo:
   - apiVersion: v1
-    created: 2018-05-26T19:30:10.786658238-07:00
+    created: 2018-05-27T11:02:19.475040302-07:00
     description: A Helm chart for Kubernetes
     digest: 034fe8960dcc4948ae28110622c6ea5b5439eb5ee35750899446da2455acf6ea
     name: osba-mysql-demo
@@ -74,7 +74,7 @@ entries:
     version: 0.1.0
   osba-storage-demo:
   - apiVersion: v1
-    created: 2018-05-26T19:30:10.786790604-07:00
+    created: 2018-05-27T11:02:19.475166542-07:00
     description: A Helm chart for Kubernetes
     digest: f7a27633b1d8cd94f209848df4ae2f309b4f614f6fd909179611cab6d37964d2
     name: osba-storage-demo
@@ -83,20 +83,29 @@ entries:
     version: 0.1.0
   osba-text-analytics-demo:
   - apiVersion: v1
-    created: 2018-05-26T19:30:10.786911463-07:00
+    created: 2018-05-27T11:02:19.475286079-07:00
     description: A Helm chart for Kubernetes
     digest: d249a3f0926c24f448e36bc40211faee4b320927919e27c1aabe337065496db0
     name: osba-text-analytics-demo
     urls:
     - https://azure-samples.github.io/helm-charts/osba-text-analytics-demo-0.1.0.tgz
     version: 0.1.0
+  tweet-factory-operator:
+  - apiVersion: v1
+    created: 2018-05-27T11:02:19.475401022-07:00
+    description: A Helm chart for Kubernetes
+    digest: 052962bf9f8031827af562f8cda5a6862fc4a8616f7b6fe8d33e63a951191d17
+    name: tweet-factory-operator
+    urls:
+    - https://azure-samples.github.io/helm-charts/tweet-factory-operator-0.1.0.tgz
+    version: 0.1.0
   twitter-sentiment:
   - apiVersion: v1
-    created: 2018-05-26T19:30:10.787080873-07:00
+    created: 2018-05-27T11:02:19.475582958-07:00
     description: A Helm chart for Kubernetes
-    digest: 50835fc9a69980fcfe33d8e0b4839b28a281717a90ad8abb1e7c708904862774
+    digest: bae2ad52c5b5ec62326552fa7983649fd38a2f72adeae890e7545a9225a370bf
     name: twitter-sentiment
     urls:
     - https://azure-samples.github.io/helm-charts/twitter-sentiment-0.1.0.tgz
     version: 0.1.0
-generated: 2018-05-26T19:30:10.782560309-07:00
+generated: 2018-05-27T11:02:19.471243755-07:00

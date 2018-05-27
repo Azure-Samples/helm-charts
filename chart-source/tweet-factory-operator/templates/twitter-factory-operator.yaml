@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tweet-factory
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: tweet-factory
+  template:
+    metadata:
+      labels:
+        name: tweet-factory
+    spec:
+      containers:
+        - name: tweet-factory
+          image: neilpeterson/tweet-factory-operator
+          command:
+          - tweet-factory
+          imagePullPolicy: Always
+          env:
+            - name: WATCH_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
