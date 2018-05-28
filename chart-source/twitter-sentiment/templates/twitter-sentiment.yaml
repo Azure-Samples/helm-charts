@@ -3,6 +3,8 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: {{ .Values.twitterSecretName }}
+  labels:
+    app: {{ .Release.Name }}
 type: Opaque
 data:
   consumerKey: {{ .Values.consumerKey | b64enc }}
@@ -16,6 +18,8 @@ kind: ServiceInstance
 metadata:
   name: {{ .Release.Name }}-tweet-sentiment-storage
   namespace: default
+  labels:
+    app: {{ .Release.Name }}
 spec:
   clusterServiceClassExternalName: azure-storage
   clusterServicePlanExternalName: general-purpose-storage-account
@@ -28,6 +32,8 @@ kind: ServiceBinding
 metadata:
   name: {{ .Release.Name }}-tweet-sentiment-storage
   namespace: default
+  labels:
+    app: {{ .Release.Name }}
 spec:
   instanceRef:
     name: {{ .Release.Name }}-tweet-sentiment-storage
@@ -37,6 +43,8 @@ apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   name: {{ .Release.Name }}-get-tweet
+  labels:
+    app: {{ .Release.Name }}
 spec:
   replicas: 1
   template:
@@ -89,6 +97,8 @@ kind: ServiceInstance
 metadata:
   name: {{ .Release.Name }}-tweet-sentiment-analytics
   namespace: default
+  labels:
+    app: {{ .Release.Name }}
 spec:
   clusterServiceClassExternalName: azure-text-analytics
   clusterServicePlanExternalName: {{ .Values.plan }}
@@ -101,6 +111,8 @@ kind: ServiceBinding
 metadata:
   name: {{ .Release.Name }}-tweet-sentiment-analytics
   namespace: default
+  labels:
+    app: {{ .Release.Name }}
 spec:
   instanceRef:
     name: {{ .Release.Name }}-tweet-sentiment-analytics
@@ -111,6 +123,8 @@ kind: ServiceInstance
 metadata:
   name: {{ .Release.Name }}-tweet-sentiment-cosmos
   namespace: default
+  labels:
+    app: {{ .Release.Name }}
 spec:
   clusterServiceClassExternalName: azure-cosmosdb-sql
   clusterServicePlanExternalName: sql-api
@@ -123,6 +137,8 @@ kind: ServiceBinding
 metadata:
   name: {{ .Release.Name }}-tweet-sentiment-cosmos
   namespace: default
+  labels:
+    app: {{ .Release.Name }}
 spec:
   instanceRef:
     name: {{ .Release.Name }}-tweet-sentiment-cosmos
@@ -132,6 +148,8 @@ apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   name: {{ .Release.Name }}-process-tweet
+  labels:
+    app: {{ .Release.Name }}
 spec:
   replicas: 1
   template:
@@ -189,6 +207,8 @@ apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   name: {{ .Release.Name }}-chart-tweet
+  labels:
+    app: {{ .Release.Name }}
 spec:
   replicas: 1
   template:
@@ -221,6 +241,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ .Release.Name }}-chart-tweet
+  labels:
+    app: {{ .Release.Name }}
 spec:
   type: LoadBalancer
   ports:
