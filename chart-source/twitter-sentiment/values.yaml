@@ -4,10 +4,10 @@ twitterSecretName: twitter-api
 # If consumerKey = controll a secret is not created
 # and it assumed that a pre-creates secret exsists
 # with a the .Values.secret-name specified here.
-consumerKey: zRnNQ5g6p5axx1CEadkiK4OPA
-consumerSecret: MSULFoDABF0gXDrk3GYTUI1bpfxNX3SPdUWQCCGHF7QTcfIwwO
-accessToken: 556115100-xtHPBPzVmf552vRtyhYUwwrlPXj5Y0wvO4yfGwY9
-accessTokenSecret: hUBslptZIgGDW2GKGEPjyqGKyBqhc0vfYyo9naJRTlis4
+consumerKey: controll
+consumerSecret: nil
+accessToken: nil
+accessTokenSecret: nil
 filterText: Seattle
 
 # Azure
