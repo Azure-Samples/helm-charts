@@ -50,7 +50,7 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ .Release.Name }}-get-tweet
+        app: {{ .Release.Name }}
     spec:
       containers:
       - name: {{ .Release.Name }}-get-tweet
@@ -155,7 +155,7 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ .Release.Name }}-process-tweet
+        app: {{ .Release.Name }}
     spec:
       containers:
       - name: {{ .Release.Name }}-process-tweet
