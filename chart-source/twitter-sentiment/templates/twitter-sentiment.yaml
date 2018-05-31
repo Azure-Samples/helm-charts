@@ -3,6 +3,8 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: {{ .Values.twitterSecretName }}
+  labels:
+    release: {{ .Release.Name }}
 type: Opaque
 data:
   consumerKey: {{ .Values.consumerKey | b64enc }}
@@ -16,6 +18,8 @@ kind: ServiceInstance
 metadata:
   name: {{ .Release.Name }}-tweet-sentiment-storage
   namespace: default
+  labels:
+    release: {{ .Release.Name }}
 spec:
   clusterServiceClassExternalName: azure-storage
   clusterServicePlanExternalName: general-purpose-storage-account
@@ -28,6 +32,8 @@ kind: ServiceBinding
 metadata:
   name: {{ .Release.Name }}-tweet-sentiment-storage
   namespace: default
+  labels:
+    release: {{ .Release.Name }}
 spec:
   instanceRef:
     name: {{ .Release.Name }}-tweet-sentiment-storage
@@ -43,6 +49,7 @@ spec:
     metadata:
       labels:
         app: {{ .Release.Name }}-get-tweet
+        release: {{ .Release.Name }}
     spec:
       containers:
       - name: {{ .Release.Name }}-get-tweet
@@ -89,6 +96,8 @@ kind: ServiceInstance
 metadata:
   name: {{ .Release.Name }}-tweet-sentiment-analytics
   namespace: default
+  labels:
+    release: {{ .Release.Name }}
 spec:
   clusterServiceClassExternalName: azure-text-analytics
   clusterServicePlanExternalName: {{ .Values.plan }}
@@ -101,6 +110,8 @@ kind: ServiceBinding
 metadata:
   name: {{ .Release.Name }}-tweet-sentiment-analytics
   namespace: default
+  labels:
+    release: {{ .Release.Name }}
 spec:
   instanceRef:
     name: {{ .Release.Name }}-tweet-sentiment-analytics
@@ -111,6 +122,8 @@ kind: ServiceInstance
 metadata:
   name: {{ .Release.Name }}-tweet-sentiment-cosmos
   namespace: default
+  labels:
+    release: {{ .Release.Name }}
 spec:
   clusterServiceClassExternalName: azure-cosmosdb-sql
   clusterServicePlanExternalName: sql-api
@@ -123,6 +136,8 @@ kind: ServiceBinding
 metadata:
   name: {{ .Release.Name }}-tweet-sentiment-cosmos
   namespace: default
+  labels:
+    release: {{ .Release.Name }}
 spec:
   instanceRef:
     name: {{ .Release.Name }}-tweet-sentiment-cosmos
@@ -132,12 +147,15 @@ apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   name: {{ .Release.Name }}-process-tweet
+  labels:
+    release: {{ .Release.Name }}
 spec:
   replicas: 1
   template:
     metadata:
       labels:
         app: {{ .Release.Name }}-process-tweet
+        release: {{ .Release.Name }}
     spec:
       containers:
       - name: {{ .Release.Name }}-process-tweet
@@ -195,6 +213,7 @@ spec:
     metadata:
       labels:
         app: {{ .Release.Name }}-chart-tweet
+        release: {{ .Release.Name }}
     spec:
       containers:
       - name: {{ .Release.Name }}-chart-tweet
@@ -221,6 +240,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ .Release.Name }}-chart-tweet
+  labels:
+    release: {{ .Release.Name }}
 spec:
   type: LoadBalancer
   ports:
