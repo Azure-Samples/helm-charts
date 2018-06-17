@@ -28,7 +28,7 @@ Install OSBA with forked image:
 ```
 helm repo add azure https://kubernetescharts.blob.core.windows.net/azure
 
-helm install azure/open-service-broker-azure --name osba --namespace osba \
+helm install azure-samples/open-service-broker-azure --name osba --namespace osba \
     --set azure.subscriptionId=$AZURE_SUBSCRIPTION_ID \
     --set azure.tenantId=$AZURE_TENANT_ID \
     --set azure.clientId=$AZURE_CLIENT_ID \
@@ -66,4 +66,3 @@ The following table lists the configurable parameters of the azure-vote chart an
 | filterText | Text to analyze. | Seattle |
 | plan | Azure Text Analytics tier. | standard-b1 |
 | resourceGroup | Azure resource group where all services are created. | twitter-sentiment |
-
