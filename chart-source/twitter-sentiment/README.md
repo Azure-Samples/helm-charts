@@ -23,11 +23,15 @@ AZURE_TENANT_ID=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 20)
 AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
 ```
 
+Add the Azure Samples chart repository.
+
+```
+helm repo add azure-samples https://azure-samples.github.io/helm-charts/
+```
+
 Install OSBA with forked image:
 
 ```
-helm repo add azure https://kubernetescharts.blob.core.windows.net/azure
-
 helm install azure-samples/open-service-broker-azure --name osba --namespace osba \
     --set azure.subscriptionId=$AZURE_SUBSCRIPTION_ID \
     --set azure.tenantId=$AZURE_TENANT_ID \
@@ -40,13 +44,7 @@ helm install azure-samples/open-service-broker-azure --name osba --namespace osb
 
 ## Installing the Chart
 
-Add the Azure Samples chart repository.
-
-```
-helm repo add azure-samples https://azure-samples.github.io/helm-charts/
-```
-
-Install the chart.
+Install the Twitter sentiment chart.
 
 ```
 helm install azure-samples/twitter-sentiment --set consumerKey=<> --set consumerSecret=<> --set accessToken=<> --set accessTokenSecret=<>
