@@ -131,6 +131,11 @@ spec:
   parameters:
     location: eastus
     resourceGroup: {{ .Values.resourceGroup }}
+    {{- if .Values.minikube}}
+    ipFilters:
+      allowedIPRanges:
+        - 0.0.0.0/0
+    {{- end}}
 ---
 apiVersion: servicecatalog.k8s.io/v1beta1
 kind: ServiceBinding
