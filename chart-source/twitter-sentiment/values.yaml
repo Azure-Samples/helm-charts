@@ -2,7 +2,7 @@
 twitterSecretName: twitter-api
 
 # If consumerKey = controll a secret is not created
-# and it assumed that a pre-creates secret exsists
+# and it assumed that a pre-created secret exsists
 # with a the .Values.secret-name specified here.
 consumerKey: controll
 consumerSecret: null
