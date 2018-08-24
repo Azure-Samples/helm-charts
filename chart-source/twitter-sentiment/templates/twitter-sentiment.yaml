@@ -169,12 +169,12 @@ spec:
         - name: AZURE_ANALYTICS_URI
           valueFrom:
             secretKeyRef:
-              key: endpoint
+              key: textAnalyticsEndpoint
               name: {{ .Release.Name }}-tweet-sentiment-analytics
         - name: AZURE_ANALYTICS_KEY
           valueFrom:
             secretKeyRef:
-              key: cognitivekey
+              key: textAnalyticsKey
               name: {{ .Release.Name }}-tweet-sentiment-analytics
         - name: AZURE_STORAGE_ACCT
           valueFrom:
