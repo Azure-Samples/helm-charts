@@ -1,19 +1,27 @@
 # Twitter sentiment with OSBA
 
-Multi container / managed service application deployed using Helm chart, Kubernetes service catalog, and Open SErvice Broker for Azure.
+Multi container / managed service application deployed using Helm chart, Kubernetes service catalog, and Open Service Broker for Azure.
 
 # Prerequisites
 
-Kubernetes cluster with Helm, service catalog and OSBA installed. This chart uses a formed OSBA module and must be installed using a custom OSBA image.
+Kubernetes cluster with Helm installed.
 
-Install service catalog:
+## Install service catalog:
 
 ```
 helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com
-helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false
+helm install svc-cat/catalog --name catalog --namespace catalog --set controllerManager.healthcheck.enabled=false
 ```
 
-Generate Azure identity: requires the Azure CLI:
+If on a non-RBAC enabled cluster, run:
+
+```
+helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false --set controllerManager.healthcheck.enabled=false
+```
+
+## Azure Identity
+
+Generate Azure identity, requires the Azure CLI:
 
 ```
 SERVICE_PRINCIPAL=$(az ad sp create-for-rbac)
@@ -23,23 +31,21 @@ AZURE_TENANT_ID=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 20)
 AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
 ```
 
-Add the Azure Samples chart repository.
+## Install the Open Service Broker for Azure
+
+This installs a fork of the Open Service broker for Azure. A [PR is in place](https://github.com/Azure/open-service-broker-azure/pull/557) to have Text Analytics added as an OSBA package.
 
 ```
-helm repo add azure-samples https://azure-samples.github.io/helm-charts/
-```
+helm repo add azure https://kubernetescharts.blob.core.windows.net/azure
 
-Install OSBA with forked image:
-
-```
-helm install azure-samples/open-service-broker-azure --name osba --namespace osba \
-    --set azure.subscriptionId=$AZURE_SUBSCRIPTION_ID \
-    --set azure.tenantId=$AZURE_TENANT_ID \
-    --set azure.clientId=$AZURE_CLIENT_ID \
-    --set azure.clientSecret=$AZURE_CLIENT_SECRET \
-    --set modules.minStability=experimental \
-    --set image.repository=neilpeterson/open-service-broker-azure_broker \
-    --set image.tag=text-analytics
+helm install azure/open-service-broker-azure --name osba --namespace osba \
+  --set azure.subscriptionId=$AZURE_SUBSCRIPTION_ID \
+  --set azure.tenantId=$AZURE_TENANT_ID \
+  --set azure.clientId=$AZURE_CLIENT_ID \
+  --set azure.clientSecret=$AZURE_CLIENT_SECRET \
+  --set modules.minStability=experimental \
+  --set image.repository=neilpeterson/osba-updated \
+  --set image.tag=latest
 ```
 
 ## Installing the Chart
