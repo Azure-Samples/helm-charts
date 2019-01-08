@@ -21,8 +21,8 @@ metadata:
   labels:
     app: {{ .Release.Name }}
 spec:
-  clusterServiceClassExternalName: azure-storage
-  clusterServicePlanExternalName: general-purpose-storage-account
+  clusterServiceClassExternalName: azure-storage-general-purpose-v2-storage-account
+  clusterServicePlanExternalName: account
   parameters:
     location: eastus
     resourceGroup: {{ .Values.resourceGroup }}
