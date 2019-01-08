@@ -10,13 +10,7 @@ Kubernetes cluster with Helm installed.
 
 ```
 helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com
-helm install svc-cat/catalog --name catalog --namespace catalog --set controllerManager.healthcheck.enabled=false
-```
-
-If on a non-RBAC enabled cluster, run:
-
-```
-helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false --set controllerManager.healthcheck.enabled=false
+helm install svc-cat/catalog --name catalog --namespace catalog --set controllerManager.healthcheck.enabled=false --set apiserver.healthcheck.enabled=false --set controllerManager.healthcheck.enabled=false
 ```
 
 ## Azure Identity
@@ -33,8 +27,6 @@ AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
 
 ## Install the Open Service Broker for Azure
 
-This installs a fork of the Open Service broker for Azure. A [PR is in place](https://github.com/Azure/open-service-broker-azure/pull/557) to have Text Analytics added as an OSBA package.
-
 ```
 helm repo add azure https://kubernetescharts.blob.core.windows.net/azure
 
@@ -43,9 +35,7 @@ helm install azure/open-service-broker-azure --name osba --namespace osba \
   --set azure.tenantId=$AZURE_TENANT_ID \
   --set azure.clientId=$AZURE_CLIENT_ID \
   --set azure.clientSecret=$AZURE_CLIENT_SECRET \
-  --set modules.minStability=experimental \
-  --set image.repository=neilpeterson/osba-updated \
-  --set image.tag=latest
+  --set modules.minStability=experimental
 ```
 
 ## Installing the Chart
@@ -64,7 +54,7 @@ The following table lists the configurable parameters of the azure-vote chart an
 |---|---|---|
 | twitterSecretName | Twitter API consumer secret.| twitter-api |
 | consumerKey | Twitter API consumer key. | control |
-| burstNconsumerSecretode | Twitter API consumer secret.| null |
+| consumerSecret| Twitter API consumer secret.| null |
 | accessToken | Twitter API access token.| null |
 | accessTokenSecret | Twitter API access token secret.| null |
 | filterText | Text to analyze. | Seattle |
