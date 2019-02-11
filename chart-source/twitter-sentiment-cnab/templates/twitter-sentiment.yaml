@@ -1,0 +1,171 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ .Values.twitterSecretName }}
+  labels:
+    app: {{ .Release.Name }}
+type: Opaque
+data:
+  consumerKey: {{ .Values.consumerKey | b64enc }}
+  consumerSecret: {{ .Values.consumerSecret | b64enc }}
+  accessToken: {{ .Values.accessToken | b64enc }}
+  accessTokenSecret: {{ .Values.accessTokenSecret | b64enc }}
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-get-tweet
+  labels:
+    app: {{ .Release.Name }}
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+    spec:
+      containers:
+      - name: {{ .Release.Name }}-get-tweet
+        image: neilpeterson/get-tweet:v2
+        env:
+        - name: AZURE_QUEUE
+          value: mytwittersentiment
+        - name: TWITTER_CONSUMER_KEY
+          valueFrom:
+            secretKeyRef:
+              key: consumerKey
+              name: {{ .Values.twitterSecretName }}
+        - name: TWITTER_CONSUMER_SECRET
+          valueFrom:
+            secretKeyRef:
+              key: consumerSecret
+              name: {{ .Values.twitterSecretName }}
+        - name: TWITTER_ACCESS_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: accessToken
+              name: {{ .Values.twitterSecretName }}
+        - name: TWITTER_ACCESS_TOKEN_SECRET
+          valueFrom:
+            secretKeyRef:
+              key: accessTokenSecret
+              name: {{ .Values.twitterSecretName }}
+        - name: TWITTER_TEXT
+          value: {{ .Values.filterText }}
+        - name: AZURE_STORAGE_ACCT
+          valueFrom:
+            secretKeyRef:
+              key: storageAccountName
+              name: {{ .Release.Name }}-tweet-sentiment-storage
+        - name: AZURE_QUEUE_KEY
+          valueFrom:
+            secretKeyRef:
+              key: accessKey
+              name: {{ .Release.Name }}-tweet-sentiment-storage
+      terminationGracePeriodSeconds: 0
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-process-tweet
+  labels:
+    app: {{ .Release.Name }}
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+    spec:
+      containers:
+      - name: {{ .Release.Name }}-process-tweet
+        image: neilpeterson/process-tweet
+        env:
+        - name: AZURE_ANALYTICS_URI
+          valueFrom:
+            secretKeyRef:
+              key: textAnalyticsEndpoint
+              name: {{ .Release.Name }}-tweet-sentiment-analytics
+        - name: AZURE_ANALYTICS_KEY
+          valueFrom:
+            secretKeyRef:
+              key: textAnalyticsKey
+              name: {{ .Release.Name }}-tweet-sentiment-analytics
+        - name: AZURE_STORAGE_ACCT
+          valueFrom:
+            secretKeyRef:
+              key: storageAccountName
+              name: {{ .Release.Name }}-tweet-sentiment-storage
+        - name: AZURE_QUEUE_KEY
+          valueFrom:
+            secretKeyRef:
+              key: accessKey
+              name: {{ .Release.Name }}-tweet-sentiment-storage
+        - name: AZURE_QUEUE
+          value: mytwittersentiment
+        - name: COSMOS_DB_ENDPOINT
+          valueFrom:
+            secretKeyRef:
+              key: uri
+              name: {{ .Release.Name }}-tweet-sentiment-cosmos
+        - name: COSMOS_DB_MASTERKEY
+          valueFrom:
+            secretKeyRef:
+              key: primaryKey
+              name: {{ .Release.Name }}-tweet-sentiment-cosmos
+        - name:  COSMOS_DB_DATABASE
+          value: mytwittersentiment
+        - name:  COSMOS_DB_COLLECTION
+          value: mytwittersentiment
+        lifecycle:
+          preStop:
+              exec:
+                command: ["bin/sh","-c","touch /kill_switch"]
+      terminationGracePeriodSeconds: 2
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-chart-tweet
+  labels:
+    app: {{ .Release.Name }}
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-chart-tweet
+    spec:
+      containers:
+      - name: {{ .Release.Name }}-chart-tweet
+        image: neilpeterson/chart-tweet
+        env:
+        - name: COSMOS_DB_ENDPOINT
+          valueFrom:
+            secretKeyRef:
+              key: uri
+              name: {{ .Release.Name }}-tweet-sentiment-cosmos
+        - name: COSMOS_DB_MASTERKEY
+          valueFrom:
+            secretKeyRef:
+              key: primaryKey
+              name: {{ .Release.Name }}-tweet-sentiment-cosmos
+        - name:  COSMOS_DB_DATABASE
+          value: mytwittersentiment
+        - name:  COSMOS_DB_COLLECTION
+          value: mytwittersentiment
+        - name:  CHART_LABEL
+          value: {{ .Values.filterText }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-chart-tweet
+  labels:
+    app: {{ .Release.Name }}
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: {{ .Release.Name }}-chart-tweet

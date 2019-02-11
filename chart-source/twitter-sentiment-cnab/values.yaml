@@ -1,0 +1,7 @@
+# Twitter API authentication
+twitterSecretName: twitter-api
+consumerKey: null
+consumerSecret: null
+accessToken: null
+accessTokenSecret: null
+filterText: Seattle
