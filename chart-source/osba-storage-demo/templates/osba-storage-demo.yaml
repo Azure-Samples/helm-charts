@@ -1,38 +1,38 @@
 apiVersion: servicecatalog.k8s.io/v1beta1
 kind: ServiceInstance
 metadata:
-  name: azure-storage-demo
+  name: azure-storage-demo-{{.Release.Name}}
   namespace: default
 spec:
-  clusterServiceClassExternalName: azure-storage
-  clusterServicePlanExternalName: blob-container
+  clusterServiceClassExternalName: azure-storage-blob-storage-account-and-container
+  clusterServicePlanExternalName: all-in-one
   parameters:
     location: eastus
-    resourceGroup: osba-azure-storag-demo
+    resourceGroup: azure-storage-demo-{{.Release.Name}}
 ---
 apiVersion: servicecatalog.k8s.io/v1beta1
 kind: ServiceBinding
 metadata:
-  name: azure-storage-binding
+  name: azure-storage-binding-{{.Release.Name}}
   namespace: default
 spec:
   instanceRef:
-    name: azure-storage-demo
-  secretName: osba-azure-storag-demo
+    name: azure-storage-demo-{{.Release.Name}}
+  secretName: azure-storage-demo-{{.Release.Name}}
 ---
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: osba-storage-demo
+  name: azure-storage-demo-{{.Release.Name}}
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: osba-storage-demo
+        app: azure-storage-demo-{{.Release.Name}}
     spec:
       containers:
-      - name: osba-storage-demo
+      - name: azure-storage-demo-{{.Release.Name}}
         image: neilpeterson/osba-storage-demo
         ports:
         - containerPort: 80
@@ -41,14 +41,14 @@ spec:
           valueFrom:
             secretKeyRef:
               key: storageAccountName
-              name: osba-azure-storag-demo
+              name: azure-storage-demo-{{.Release.Name}}
         - name: AZURE_KEY
           valueFrom:
             secretKeyRef:
               key: accessKey
-              name: osba-azure-storag-demo
+              name: azure-storage-demo-{{.Release.Name}}
         - name: CONTAINER
           valueFrom:
             secretKeyRef:
               key: containerName
-              name: osba-azure-storag-demo
+              name: azure-storage-demo-{{.Release.Name}}
