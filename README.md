@@ -1,3 +1,12 @@
+---
+page_type: sample
+languages:
+- yaml
+products:
+- azure
+description: "Sample Helm charts for Azure."
+---
+
 # Azure Samples - Helm Charts
 
 ## Configuration
