@@ -2,7 +2,15 @@ apiVersion: v1
 entries:
   aks-helloworld:
   - apiVersion: v1
-    created: 2019-05-27T08:33:22.567132062-07:00
+    created: "2020-02-26T13:06:37.594325-08:00"
+    description: A Helm chart for Kubernetes
+    digest: dfc331f53d785720fc583727cfdb312462fc813512d1cbd29c930a985e090f67
+    name: aks-helloworld
+    urls:
+    - https://azure-samples.github.io/helm-charts/aks-helloworld-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v1
+    created: "2020-02-26T13:06:37.593177-08:00"
     description: A Helm chart for Kubernetes
     digest: f4eb20e7116b24c4825861e6ff6f4303bbe83bcee4a7b2b6ea9fe6929852f34d
     name: aks-helloworld
@@ -11,7 +19,15 @@ entries:
     version: 0.1.0
   azure-vote:
   - apiVersion: v1
-    created: 2019-05-27T08:33:22.570102626-07:00
+    created: "2020-02-26T13:06:37.60517-08:00"
+    description: A Helm chart for Kubernetes
+    digest: 6282fc76996eadfc8571a1b8a8b7ff98ad75fd7d796fcd6b3ccfc72b13d71d32
+    name: azure-vote
+    urls:
+    - https://azure-samples.github.io/helm-charts/azure-vote-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v1
+    created: "2020-02-26T13:06:37.601951-08:00"
     description: A Helm chart for Kubernetes
     digest: da054ba832f52ff3e8da26ffe705d6ad6c2ed0818c04588c832c716e8e8d84a7
     name: azure-vote
@@ -20,7 +36,15 @@ entries:
     version: 0.1.0
   azure-vote-osba:
   - apiVersion: v1
-    created: 2019-05-27T08:33:22.572813661-07:00
+    created: "2020-02-26T13:06:37.610573-08:00"
+    description: A Helm chart for Kubernetes
+    digest: 325c6862d5f796233ac56487c0a06374460dc221c888702f27668fc0a960f159
+    name: azure-vote-osba
+    urls:
+    - https://azure-samples.github.io/helm-charts/azure-vote-osba-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v1
+    created: "2020-02-26T13:06:37.607894-08:00"
     description: A Helm chart for Kubernetes
     digest: 64f7688099208066cef552afc560bd4d0ff04a297365c4260d3116fd1af061da
     name: azure-vote-osba
@@ -29,7 +53,15 @@ entries:
     version: 0.1.0
   burst-scheduler:
   - apiVersion: v1
-    created: 2019-05-27T08:33:22.573343132-07:00
+    created: "2020-02-26T13:06:37.611578-08:00"
+    description: A Helm chart for Kubernetes
+    digest: b0d5cf615fcddd9d383e67ffaa2510753ddbf060abb051661898179f600a93cb
+    name: burst-scheduler
+    urls:
+    - https://azure-samples.github.io/helm-charts/burst-scheduler-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v1
+    created: "2020-02-26T13:06:37.611152-08:00"
     description: A Helm chart for Kubernetes
     digest: 326910e7174b98c337e508c1b2baa1e430720758e013256aa8fcbcf1551c2c13
     name: burst-scheduler
@@ -38,7 +70,15 @@ entries:
     version: 0.1.0
   image-pull-secret:
   - apiVersion: v1
-    created: 2019-05-27T08:33:22.5740077-07:00
+    created: "2020-02-26T13:06:37.612866-08:00"
+    description: A Helm chart for Kubernetes
+    digest: 8c3612b24a434eb583e180792ef7601453fc3573a8342cdcc96b3f75eff0c6be
+    name: image-pull-secret
+    urls:
+    - https://azure-samples.github.io/helm-charts/image-pull-secret-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v1
+    created: "2020-02-26T13:06:37.612398-08:00"
     description: A Helm chart for Kubernetes
     digest: ee937e26d72c420a9eb5af8eb0ef23206260858c830b06e7b5ec37c5752fa6a3
     name: image-pull-secret
@@ -48,7 +88,12 @@ entries:
   open-service-broker-azure:
   - apiVersion: v1
     appVersion: v0.0.1
-    created: 2019-05-27T08:33:22.575572219-07:00
+    created: "2020-02-26T13:06:37.614465-08:00"
+    dependencies:
+    - condition: redis.embedded
+      name: redis
+      repository: https://kubernetes-charts.storage.googleapis.com/
+      version: 0.10.0
     description: A Helm chart for Open Service Broker For Azure
     digest: 407ba56844a0e8ed67014ea3d7ef32d2b2e15f7f34bf691b237da6f10818e265
     home: https://github.com/azure/open-service-broker-azure
@@ -65,13 +110,20 @@ entries:
     sources:
     - https://github.com/azure/open-service-broker-azure
     - https://hub.docker.com/r/microsoft/azure-service-broker/
-    tillerVersion: '>=2.7.0-rc1'
     urls:
     - https://azure-samples.github.io/helm-charts/open-service-broker-azure-v0.0.1.tgz
     version: v0.0.1
   osba-container-instances-demo:
   - apiVersion: v1
-    created: 2019-05-27T08:33:22.576102446-07:00
+    created: "2020-02-26T13:06:37.615279-08:00"
+    description: A Helm chart for Kubernetes
+    digest: 6e7eeba2b7940e31ba11f6e95361213fefd0e5b624ffd14f9dfa99eeaa88a0db
+    name: osba-container-instances-demo
+    urls:
+    - https://azure-samples.github.io/helm-charts/osba-container-instances-demo-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v1
+    created: "2020-02-26T13:06:37.614869-08:00"
     description: A Helm chart for Kubernetes
     digest: b5f25ecf64d72644166835e48afda396b83acaff341bcb7c1e60efc12e547df6
     name: osba-container-instances-demo
@@ -80,7 +132,15 @@ entries:
     version: 0.1.0
   osba-cosmos-mongodb-demo:
   - apiVersion: v1
-    created: 2019-05-27T08:33:22.576740533-07:00
+    created: "2020-02-26T13:06:37.61649-08:00"
+    description: A Helm chart for Kubernetes
+    digest: 358f844b2f3e7df73b89a94c0adbd86e618242f13be618bb1e12898082dc2133
+    name: osba-cosmos-mongodb-demo
+    urls:
+    - https://azure-samples.github.io/helm-charts/osba-cosmos-mongodb-demo-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v1
+    created: "2020-02-26T13:06:37.615701-08:00"
     description: A Helm chart for Kubernetes
     digest: b581f67458cdf999ef0308786dc29f603bab6aadf5ad0a127f5fb1a816aef091
     name: osba-cosmos-mongodb-demo
@@ -89,7 +149,15 @@ entries:
     version: 0.1.0
   osba-mysql-demo:
   - apiVersion: v1
-    created: 2019-05-27T08:33:22.577384066-07:00
+    created: "2020-02-26T13:06:37.618108-08:00"
+    description: A Helm chart for Kubernetes
+    digest: 37afbb45ce448bf78953181dfc3654e5f8476ab4c801c7f67b2df1f30c973384
+    name: osba-mysql-demo
+    urls:
+    - https://azure-samples.github.io/helm-charts/osba-mysql-demo-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v1
+    created: "2020-02-26T13:06:37.617364-08:00"
     description: A Helm chart for Kubernetes
     digest: 034fe8960dcc4948ae28110622c6ea5b5439eb5ee35750899446da2455acf6ea
     name: osba-mysql-demo
@@ -98,7 +166,15 @@ entries:
     version: 0.1.0
   osba-storage-demo:
   - apiVersion: v1
-    created: 2019-05-27T08:33:22.577624783-07:00
+    created: "2020-02-26T13:06:37.618843-08:00"
+    description: A Helm chart for Kubernetes
+    digest: b267c6ee8105b8e745f7551547e4a403fed28bc2d57640be5dfe71b58ba214d9
+    name: osba-storage-demo
+    urls:
+    - https://azure-samples.github.io/helm-charts/osba-storage-demo-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v1
+    created: "2020-02-26T13:06:37.618524-08:00"
     description: A Helm chart for Kubernetes
     digest: d74b4c6a348b988e4dfa8fb2ad6873f533aeb0390ee5a1a88fedcee9fc2abc3a
     name: osba-storage-demo
@@ -107,7 +183,15 @@ entries:
     version: 0.1.0
   osba-text-analytics-demo:
   - apiVersion: v1
-    created: 2019-05-27T08:33:22.578265137-07:00
+    created: "2020-02-26T13:06:37.619605-08:00"
+    description: A Helm chart for Kubernetes
+    digest: 9be5255cccf031e03d62288b3d85d2c45a0079fa8f5b7914b0a7bfbeeea1df34
+    name: osba-text-analytics-demo
+    urls:
+    - https://azure-samples.github.io/helm-charts/osba-text-analytics-demo-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v1
+    created: "2020-02-26T13:06:37.619178-08:00"
     description: A Helm chart for Kubernetes
     digest: d249a3f0926c24f448e36bc40211faee4b320927919e27c1aabe337065496db0
     name: osba-text-analytics-demo
@@ -116,7 +200,7 @@ entries:
     version: 0.1.0
   tweet-factory-operator:
   - apiVersion: v1
-    created: 2019-05-27T08:33:22.578904972-07:00
+    created: "2020-02-26T13:06:37.619982-08:00"
     description: A Helm chart for Kubernetes
     digest: 8186cd27426d20d607f093f90ee05fe65be0e27fda7ecaeb6b98c1ee6204f11a
     name: tweet-factory-operator
@@ -125,7 +209,15 @@ entries:
     version: 0.1.0
   twitter-sentiment:
   - apiVersion: v1
-    created: 2019-05-27T08:33:22.579515427-07:00
+    created: "2020-02-26T13:06:37.620928-08:00"
+    description: A Helm chart for Kubernetes
+    digest: 6983f03a3fc68c0e029e52222ea665b69c2f143e839af141c7c5251f8077ab7c
+    name: twitter-sentiment
+    urls:
+    - https://azure-samples.github.io/helm-charts/twitter-sentiment-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v1
+    created: "2020-02-26T13:06:37.620449-08:00"
     description: A Helm chart for Kubernetes
     digest: 0a71fceec9bc133c4d2e7a9475e19478bb997cd10898803eaf68f3ce33ff271a
     name: twitter-sentiment
@@ -134,11 +226,19 @@ entries:
     version: 0.1.0
   twitter-sentiment-cnab:
   - apiVersion: v1
-    created: 2019-05-27T08:33:22.580040706-07:00
+    created: "2020-02-26T13:06:37.622255-08:00"
+    description: A Helm chart for Kubernetes
+    digest: ead90c69fd2aad62da94fa0ecb72ae7319a70ac51a5406b0131be0ce2b0884b5
+    name: twitter-sentiment-cnab
+    urls:
+    - https://azure-samples.github.io/helm-charts/twitter-sentiment-cnab-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v1
+    created: "2020-02-26T13:06:37.621365-08:00"
     description: A Helm chart for Kubernetes
     digest: f6446a210a13c6f8a3b5d5feb7cd70115e3b00c8b445dc14c5186e5d2a56de2a
     name: twitter-sentiment-cnab
     urls:
     - https://azure-samples.github.io/helm-charts/twitter-sentiment-cnab-0.1.0.tgz
     version: 0.1.0
-generated: 2019-05-27T08:33:22.566240933-07:00
+generated: "2020-02-26T13:06:37.590128-08:00"
