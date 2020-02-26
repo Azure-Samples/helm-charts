@@ -20,7 +20,7 @@ spec:
     name: azure-rediscache-{{.Release.Name}}
   secretName: azure-rediscache-secret-{{.Release.Name}}
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: vote-front-{{.Release.Name}}

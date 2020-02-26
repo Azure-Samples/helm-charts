@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: vote-back-{{.Release.Name}}
@@ -16,7 +16,7 @@ spec:
         - containerPort: 6379
           name: redis
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: vote-front-{{.Release.Name}}

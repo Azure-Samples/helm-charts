@@ -11,7 +11,7 @@ data:
   accessToken: {{ .Values.accessToken | b64enc }}
   accessTokenSecret: {{ .Values.accessTokenSecret | b64enc }}
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Release.Name }}-get-tweet
@@ -64,7 +64,7 @@ spec:
               name: {{ .Release.Name }}-tweet-sentiment-storage
       terminationGracePeriodSeconds: 0
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Release.Name }}-process-tweet
@@ -123,7 +123,7 @@ spec:
                 command: ["bin/sh","-c","touch /kill_switch"]
       terminationGracePeriodSeconds: 2
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Release.Name }}-chart-tweet

@@ -39,7 +39,7 @@ spec:
     name: {{ .Release.Name }}-tweet-sentiment-storage
   secretName: {{ .Release.Name }}-tweet-sentiment-storage
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Release.Name }}-get-tweet
@@ -149,7 +149,7 @@ spec:
     name: {{ .Release.Name }}-tweet-sentiment-cosmos
   secretName: {{ .Release.Name }}-tweet-sentiment-cosmos
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Release.Name }}-process-tweet
@@ -208,7 +208,7 @@ spec:
                 command: ["bin/sh","-c","touch /kill_switch"]
       terminationGracePeriodSeconds: 2
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Release.Name }}-chart-tweet

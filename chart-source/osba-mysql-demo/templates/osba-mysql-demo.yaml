@@ -21,7 +21,7 @@ spec:
     name: osba-mysql-demo
   secretName: osba-mysql-demo
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: osba-mysql-demo

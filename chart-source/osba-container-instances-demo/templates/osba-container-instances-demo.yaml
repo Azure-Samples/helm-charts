@@ -22,7 +22,7 @@ spec:
     name: osba-container-instances-demo
   secretName: osba-container-instances-demo
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: osba-container-instances-demo
