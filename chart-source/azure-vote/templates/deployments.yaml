@@ -1,9 +1,12 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: vote-back-{{.Release.Name}}
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: vote-back-{{.Release.Name}}
   template:
     metadata:
       labels:
@@ -16,12 +19,15 @@ spec:
         - containerPort: 6379
           name: redis
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: vote-front-{{.Release.Name}}
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: vote-front-{{.Release.Name}}
   strategy:
     rollingUpdate:
       maxSurge: 1
